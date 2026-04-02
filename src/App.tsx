@@ -1,12 +1,13 @@
-import React from 'react';
+import './App.css'
+// @ts-ignore: module has no declaration file, Layout is JS component
+import Layout from "./components/Layout"
 
-const Header: React.FC = () => {
+function App() {
   return (
-    <header>
-      <h1>Jobs App</h1>
-      {/* Add additional header content here */}
-    </header>
-  );
-};
+    <>
+      <Layout />
+    </>
+  )
+}
 
-export default Header;
+export default App
