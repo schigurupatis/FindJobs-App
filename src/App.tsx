@@ -1,16 +1,12 @@
-import { useState } from 'react'
-import './App.css'
-import Header from "../src/components/Header"
+import React from 'react';
 
-function App() {
-  
-
+const Header: React.FC = () => {
   return (
-    <>
-      {/* <h3 className='text-3xl font-bold underline'>Hello</h3> */}
-      <Header />
-    </>
-  )
-}
+    <header>
+      <h1>Jobs App</h1>
+      {/* Add additional header content here */}
+    </header>
+  );
+};
 
-export default App
+export default Header;
