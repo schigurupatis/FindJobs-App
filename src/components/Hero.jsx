@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hero = () => {
   return (
-    <section className="bg-[#F8F9FF] pt-16 pb-24">
+    <section className=" pt-16 pb-24">
       <div className="max-w-7xl mx-auto px-4 text-center">
         <h1 className="text-[44px] font-extrabold text-slate-900 mb-2">
           Find your dream job now
