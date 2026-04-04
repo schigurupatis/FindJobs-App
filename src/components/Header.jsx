@@ -15,10 +15,10 @@ const Header = () => {
         {/* Left Side: Logo & Main Nav */}
         <div className="flex items-center gap-10">
           <NavLink to="/" className="flex items-center gap-1 cursor-pointer">
-            <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-2xl">
-              JA
-            </div>
-            <span className="text-2xl font-black text-blue-900 tracking-tighter uppercase">Jobs-App</span>
+            {/* <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-2xl">
+              LJ
+            </div> */}
+            <span className="text-2xl font-black text-blue-900 tracking-tighter">LocalJobs</span>
           </NavLink>
 
           {/* Corrected Navigation List */}
@@ -34,7 +34,7 @@ const Header = () => {
           <button className="px-6 py-2 rounded-full border border-blue-600 text-blue-600 font-bold text-sm hover:bg-blue-50 transition-all">
             Login
           </button>
-          <button className="px-6 py-2 rounded-full bg-[#FF4B2B] text-white font-bold text-sm hover:opacity-90 shadow-md transition-all">
+          <button className="px-6 py-2 rounded-full bg-[#165dfc] text-white font-bold text-sm hover:opacity-90 shadow-md transition-all">
             Register
           </button>
         </div>
