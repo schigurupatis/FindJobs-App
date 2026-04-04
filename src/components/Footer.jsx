@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router';
 
 const Footer = () => {
   return (
@@ -18,7 +19,9 @@ const Footer = () => {
 
                 {/* Right Side */}
                 <div className="text-sm font-bold text-gray-400 tracking-tight">
-                Santha Kumar Chigurupati
+                  <NavLink to="https://www.linkedin.com/in/schigurupatis/" target='_blank'>
+                    Santha Kumar Chigurupati
+                  </NavLink>
                 </div>
                 
             </div>
