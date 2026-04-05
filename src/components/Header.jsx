@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Link } from 'react-router' // Use Link for the logo to avoid full page refresh
+import { NavLink } from 'react-router-dom' // Use Link for the logo to avoid full page refresh
 
 const Header = () => {
   // Helper function to handle active/inactive styles

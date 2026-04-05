@@ -13,7 +13,7 @@ import Companies from "./pages/Companies"
 // @ts-ignore
 import Home from "./pages/Home"
 
-import { Routes, Route } from 'react-router'
+import {Routes, Route} from 'react-router-dom'
 
 
 function App() {

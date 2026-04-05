@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Hero = () => {
+const Search = () => {
   return (
     <section className=" pt-16 pb-24">
       <div className="max-w-7xl mx-auto px-4 text-center">
@@ -58,4 +58,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Search;

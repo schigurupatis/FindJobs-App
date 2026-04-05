@@ -1,11 +1,11 @@
 
-import Hero from '../components/Hero'
+import Search from '../components/Search'
 
 const Home = () => {
   return (
     <>
         
-        <Hero />
+        <Search />
         
     </>
   )
