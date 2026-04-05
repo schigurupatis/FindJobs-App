@@ -18,7 +18,7 @@ const Header = () => {
             {/* <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-2xl">
               LJ
             </div> */}
-            <span className="text-2xl font-black text-blue-900 tracking-tighter">LocalJobs</span>
+            <span className="text-2xl font-black text-blue-900 tracking-tighter">All Jobs</span>
           </NavLink>
 
           {/* Corrected Navigation List */}

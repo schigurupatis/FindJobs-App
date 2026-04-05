@@ -1,9 +1,24 @@
 import React, {useState, useEffect} from 'react'
 import JobCard from '../components/JobCard';
+// const { getJson } = require("serpapi"); 
+
+// REMOVE OR COMMENT OUT THIS BLOCK:
+// getJson({
+//   engine: "google_jobs",
+//   q: "reactjs",
+//   location: "India",
+//   google_domain: "google.co.in",
+//   hl: "en",
+//   gl: "in",
+//   api_key: "62a595f36f514ba5dc0917d0ac8e7129fca8b7200863a5520199387fc26ad76c"
+// }, (json) => {
+//   console.log(json["jobs_results"]);
+// });
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
-  const URL = 'https://serpapi.com/search.json?engine=google_jobs&q=Barista&location=Austin,+Texas,+United+States&google_domain=google.com&hl=en&gl=us'
+  const SERPAPI_API_KEY = import.meta.env.VITE_SERPAPI_API_KEY;
+  const URL = `https://serpapi.com/search.json?engine=google_jobs&q=reactjs&location=India&google_domain=google.co.in&hl=en&gl=in&api_key=${SERPAPI_API_KEY}`;
   //const URL = 'https://serpapi.com/search.json?engine=google_jobs&q=Reactjs&location=Austin,+Texas,+United+States&google_domain=google.com&hl=en&gl=us'
   useEffect(()=> {
     const getJobs = async () => {
@@ -16,7 +31,7 @@ const Jobs = () => {
       }
     }
     getJobs()
-  }, [])
+  }, [SERPAPI_API_KEY])
   return (
     <>
         <div className="bg-[#F8F9FF] min-h-screen py-10">
