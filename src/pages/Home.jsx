@@ -2,6 +2,7 @@ import { useState } from "react";
 import Search from "../components/Search";
 import JobCard from "../components/JobCard";
 
+
 const Home = () => {
   const [jobs, setJobs] = useState([]);
 

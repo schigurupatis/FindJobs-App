@@ -1,4 +1,17 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
+
+
+const debounce = (fn, delay) => {
+  let timer;
+
+  return function (...args) {
+    clearTimeout(timer);
+
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
+  };
+};
 
 const Search = ({ setJobs }) => {
   const [query, setQuery] = useState('');
@@ -19,6 +32,8 @@ const Search = ({ setJobs }) => {
       console.log("Error:", err.message);
     }
   };
+
+  const debouncedSearch = useMemo(()=> debounce(handleSearch, 500))
 
   return (
     <section className="pt-16 pb-24">
@@ -84,7 +99,8 @@ const Search = ({ setJobs }) => {
 
           {/* Search Button */}
           <button
-            onClick={handleSearch}
+            // onClick={handleSearch}
+            onClick={debouncedSearch}
             className="w-full md:w-auto bg-[#457EFF] hover:bg-blue-600 text-white font-bold px-10 py-4 rounded-full transition-all text-lg"
           >
             Search
