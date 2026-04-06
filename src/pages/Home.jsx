@@ -1,10 +1,12 @@
 import { useState } from "react";
 import Search from "../components/Search";
 import JobCard from "../components/JobCard";
-
+import { useJobs } from "../contexts/JobContext";
 
 const Home = () => {
-  const [jobs, setJobs] = useState([]);
+  // const [jobs, setJobs] = useState([]);
+  const { jobs, setJobs } = useJobs();
+  
 
   return (
     <>
