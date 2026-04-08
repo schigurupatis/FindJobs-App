@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 
 
 const debounce = (fn, delay) => {
-  let timer;
+  let timer; //closure
 
   return function (...args) {
     clearTimeout(timer);
@@ -13,6 +13,7 @@ const debounce = (fn, delay) => {
   };
 };
 
+
 const Search = ({ setJobs }) => {
   const [query, setQuery] = useState('');
   const [location, setLocation] = useState('');
@@ -20,9 +21,9 @@ const Search = ({ setJobs }) => {
 
   const API_KEY = import.meta.env.VITE_SERPAPI_API_KEY;
 
-  const handleSearch = async () => {
+  const handleSearch = async (searchText) => {
     try {
-      const URL = `https://serpapi.com/search.json?engine=google_jobs&q=${query}&location=${location}&api_key=${API_KEY}`;
+      const URL = `https://serpapi.com/search.json?engine=google_jobs&q=${searchText}&location=${location}&api_key=${API_KEY}`;
 
       const res = await fetch(URL);
       const data = await res.json();
@@ -33,7 +34,10 @@ const Search = ({ setJobs }) => {
     }
   };
 
-  const debouncedSearch = useMemo(()=> debounce(handleSearch, 500))
+  const debouncedSearch = useMemo(
+    () => debounce((value) => handleSearch(value), 500), 
+    [location]
+  )
 
   return (
     <section className="pt-16 pb-24">
@@ -59,7 +63,11 @@ const Search = ({ setJobs }) => {
               type="text"
               placeholder="Enter skills / designations / companies"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => {
+                const value = e.target.value;
+                setQuery(value)
+                debouncedSearch(value)
+              }}
               className="w-full text-[15px] focus:outline-none placeholder:text-gray-400 text-gray-700"
             />
           </div>
@@ -100,7 +108,7 @@ const Search = ({ setJobs }) => {
           {/* Search Button */}
           <button
             // onClick={handleSearch}
-            onClick={debouncedSearch}
+            onClick={() => debouncedSearch(query)}
             className="w-full md:w-auto bg-[#457EFF] hover:bg-blue-600 text-white font-bold px-10 py-4 rounded-full transition-all text-lg"
           >
             Search
