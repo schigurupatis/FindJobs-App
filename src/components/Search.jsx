@@ -1,4 +1,6 @@
 import React, { useMemo, useState } from 'react';
+import { useDispatch } from "react-redux";
+import { fetchJobs } from "../store/slices/jobSlice";
 
 
 const debounce = (fn, delay) => {
@@ -14,7 +16,9 @@ const debounce = (fn, delay) => {
 };
 
 
+
 const Search = ({ setJobs }) => {
+  const dispatch = useDispatch();
   const [query, setQuery] = useState('');
   const [location, setLocation] = useState('');
   const [experience, setExperience] = useState('');
@@ -22,16 +26,17 @@ const Search = ({ setJobs }) => {
   const API_KEY = import.meta.env.VITE_SERPAPI_API_KEY;
 
   const handleSearch = async (searchText) => {
-    try {
-      const URL = `https://serpapi.com/search.json?engine=google_jobs&q=${searchText}&location=${location}&api_key=${API_KEY}`;
+    // try {
+    //   const URL = `https://serpapi.com/search.json?engine=google_jobs&q=${searchText}&location=${location}&api_key=${API_KEY}`;
 
-      const res = await fetch(URL);
-      const data = await res.json();
+    //   const res = await fetch(URL);
+    //   const data = await res.json();
 
-      setJobs(data.jobs_results || []);
-    } catch (err) {
-      console.log("Error:", err.message);
-    }
+    //   setJobs(data.jobs_results || []);
+    // } catch (err) {
+    //   console.log("Error:", err.message);
+    // }
+      dispatch(fetchJobs({ query: searchText, location }));
   };
 
   const debouncedSearch = useMemo(
