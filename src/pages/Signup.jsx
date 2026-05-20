@@ -59,8 +59,8 @@ const Signup = () => {
 
       const data = await response.json();
       if (response.ok) {
-        alert("Registration Successful! Redirecting to login...");
-        navigate('/login');
+        alert("Registration Successful! Redirecting to signin...");
+        navigate('/signin');
       } else {
         setErrors({ apiError: data.message || "Registration failed. Try again." });
       }
@@ -169,7 +169,7 @@ const Signup = () => {
             </button>
 
             <p className="text-sm text-gray-600 text-center mt-4">
-              Already registered? <Link to="/login" className="text-blue-600 font-bold hover:underline">Login here</Link>
+              Already registered? <Link to="/signin" className="text-blue-600 font-bold hover:underline">Signin here</Link>
             </p>
           </form>
         </div>

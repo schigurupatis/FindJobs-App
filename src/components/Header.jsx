@@ -31,12 +31,12 @@ const Header = () => {
 
         {/* Right Side: Auth */}
         <div className="flex items-center gap-4">
-          <button className="px-6 py-2 rounded-full border border-blue-600 text-blue-600 font-bold text-sm hover:bg-blue-50 transition-all">
+          <NavLink to="/signin" className="px-6 py-2 rounded-full border border-blue-600 text-blue-600 font-bold text-sm hover:bg-blue-50 transition-all">
             Login
-          </button>
-          <button className="px-6 py-2 rounded-full bg-[#165dfc] text-white font-bold text-sm hover:opacity-90 shadow-md transition-all">
+          </NavLink>
+          <NavLink to="/signup" className="px-6 py-2 rounded-full bg-[#165dfc] text-white font-bold text-sm hover:opacity-90 shadow-md transition-all">
             Register
-          </button>
+          </NavLink>
         </div>
       </nav>
     </header>

@@ -15,6 +15,8 @@ import Companies from "./pages/Companies"
 import Services from "./pages/Services"
 // @ts-ignore
 import Signup from "./pages/Signup"
+// @ts-ignore
+import Signin from "./pages/Signin"
 
 function App() {
   // 1. Define the shared state here (Lifting State Up)
@@ -30,6 +32,8 @@ function App() {
         <Route path="/companies" element={<Companies />} />
         <Route path="/services" element={<Services />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/signin" element={<Signin />} />
       </Route>
     </Routes>
   )
