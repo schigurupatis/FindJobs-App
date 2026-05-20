@@ -1,39 +1,37 @@
+import React, { useState } from 'react'
 import './index.css'
 import './App.css'
+import { Routes, Route } from 'react-router-dom'
 
-// @ts-ignore: module has no declaration file, Layout is JS component
-import Layout from "./components/Layout"
-// import Home from "./pages/Home"
 // @ts-ignore
-import Services from "./pages/Services"
+import Layout from "./components/Layout"
+// @ts-ignore
+import Home from "./pages/Home"
 // @ts-ignore
 import Jobs from "./pages/Jobs"
 // @ts-ignore
 import Companies from "./pages/Companies"
 // @ts-ignore
-import Home from "./pages/Home"
-
-import {Routes, Route} from 'react-router-dom'
-
+import Services from "./pages/Services"
+// @ts-ignore
+import Signup from "./pages/Signup"
 
 function App() {
-  return (
-    <>
-      
+  // 1. Define the shared state here (Lifting State Up)
+  const [jobs, setJobs] = useState([]);
 
-      {/* <BrowserRouter> */}
-        <Routes>
-          {/* The parent Route handles the common Header and Footer */}
-          <Route element={<Layout />}>
-            {/* These children will render inside the <Outlet /> of Layout */}
-            <Route path="/" element={<Home />} />
-            <Route path="/jobs" element={<Jobs />} />
-            <Route path="/companies" element={<Companies />} />
-            <Route path="/services" element={<Services />} />
-          </Route>
-        </Routes>
-      {/* </BrowserRouter> */}
-    </>
+  return (
+    <Routes>
+      <Route element={<Layout />}>
+        {/* 2. Pass jobs and setJobs as props to the pages that need them */}
+        <Route path="/" element={<Home jobs={jobs} setJobs={setJobs} />} />
+        <Route path="/jobs" element={<Jobs jobs={jobs} setJobs={setJobs} />} />
+        
+        <Route path="/companies" element={<Companies />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/signup" element={<Signup />} />
+      </Route>
+    </Routes>
   )
 }
 

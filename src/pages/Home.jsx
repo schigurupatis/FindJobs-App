@@ -1,39 +1,21 @@
-import { useState } from "react";
-import Search from "../components/Search";
-import JobCard from "../components/JobCard";
-import { useJobs } from "../contexts/JobContext";
-import { useSelector } from "react-redux";
+import React from 'react';
+import Search from '../components/Search';
+import JobCard from '../components/JobCard';
 
-
-const Home = () => {
-  const { jobs, loading } = useSelector((state) => state.jobs);
-  // const [jobs, setJobs] = useState([]);
-  // const { jobs, setJobs } = useJobs();
-  
-{loading && <p>Loading...</p>}
-
-
+const Home = ({ jobs, setJobs }) => {
   return (
-    <>
-      {/* <Search setJobs={setJobs} /> */}
-      <Search />
-
-      {/* Show results below search */}
-      <div className="max-w-3xl mx-auto px-4 mt-10">
-        {jobs.length > 0 && (
-          <>
-            <p className="mb-4 font-bold">{jobs.length} Jobs Found</p>
-
-            {/* {jobs.map((job) => (
-              <JobCard key={job.job_id} job={job} />
-            ))} */}
-            {jobs.map((job) => (
-              <JobCard key={job.job_id} job={job} />
-            ))}
-          </>
+    <div>
+      <Search setJobs={setJobs} />
+      <div className="max-w-3xl mx-auto py-10 px-4">
+        {jobs && jobs.length > 0 ? (
+          jobs.map((job) => (
+            <JobCard key={job.job_id || job.id} job={job} />
+          ))
+        ) : (
+          <p className="text-center text-gray-400">Search for jobs to see results.</p>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
